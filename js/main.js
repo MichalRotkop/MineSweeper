@@ -1,6 +1,7 @@
 'use strict'
 
 const MINE = '💣'
+const FLAG = '🚩'
 
 var gBoard
 var gLevel
@@ -8,7 +9,7 @@ var gGame
 
 function onInit() {
     gLevel = {
-        size: 4,
+        size: 8,
         mines: 2
     }
     gGame = {
@@ -39,6 +40,10 @@ function buildBoard(size) {
     }
     board[1][1].isMine = true
     board[3][2].isMine = true
+    board[4][5].isMine = true
+    board[7][6].isMine = true
+    board[2][4].isMine = true
+    board[5][5].isMine = true
     return board
 }
 
@@ -49,10 +54,10 @@ function renderBoard(board) {
         strHTML += '<tr>'
         for (var j = 0; j < board[0].length; j++) {
             var currCell = board[i][j]
-            var className = currCell.isShown ? 'shown' : ''
+            var className = currCell.isMine ? 'mine' : ''
             strHTML += `<td class="cell ${className}"
-            onclick="onCellClicked(this,${i},${j})"
-            data-i="${i}" data-j="${j}"><span hidden>`
+            onclick="onCellClicked(this,${i},${j})" oncontextmenu="onCellMarked(this,event)"
+            data-i="${i}" data-j="${j}"><h4></h4><span hidden>`
             if (currCell.isMine) {
                 strHTML += MINE
             } else {
@@ -85,47 +90,94 @@ function setMinesNegsCount(board) {
 }
 
 function onCellClicked(elCell, i, j) {
-    console.log('elCell:',elCell)
+    console.log('elCell:', elCell)
     // if right click - onCellMarked(elCell)
 
     // update modal
-    i = elCell.dataset.i
-    j = elCell.dataset.j
+    i = +elCell.dataset.i
+    j = +elCell.dataset.j
     var currCell = gBoard[i][j]
-    
+
     currCell.isShown = true
-    console.log('currCell:',currCell)
+    // console.log('currCell:', currCell)
 
     //update DOM
-
     elCell.querySelector('span').hidden = false
-   
 
+    if (!currCell.isMine && currCell.minesAroundCount === 0) {
+        expandShown(gBoard, elCell, i, j)
+    }
+
+    if (currCell.isMine) gameOver()
+}
+
+function onCellMarked(elCell, ev) {
+    // console.log('ev:',ev)
+    console.log('elCell:',elCell)
+    
+
+    ev.preventDefault()
+    var elH4 = elCell.querySelector('h4')
+    var i = +elCell.dataset.i
+    var j = +elCell.dataset.j
+    var currCell = gBoard[i][j]
+    
+    
+    if (elH4.innerHTML === FLAG) {
+        elH4.innerHTML = ''
+        currCell.isMarked = false
+    } else {
+        elH4.innerHTML = FLAG
+        currCell.isMarked = true
+
+    }
+    console.log('currCell:',currCell)
 }
 
 function expandShown(board, elCell, i, j) {
 
+    for (var k = i - 1; k <= i + 1; k++) {
+        if (k < 0 || k >= board.length) continue
+        for (var l = j - 1; l <= j + 1; l++) {
+            if (k === i && l === j) continue
+            if (l < 0 || l >= board[k].length) continue
+            // if (mat[i][j] === LIFE || mat[i][j] === SUPER_LIFE) negsCount++
+            if (!board[k][l].isMine && !board[k][l].isMarked) {
+                var elNegCell = document.querySelector(`[data-i="${k}"][data-j="${l}"]`)
+                elNegCell.querySelector('span').hidden = false
+                // console.log(elNegCell)
+            }
+        }
+    }
 }
+
+
+
+function gameOver() {
+    gGame.isOn = false
+    // stop timer
+    // smiley sad
+    // red marks losing bomb
+    var elMineCells = document.querySelectorAll('.mine')
+    for (var i = 0; i < elMineCells.length; i++) {
+        elMineCells[i].querySelector('span').hidden = false
+    }
+
+}
+
 
 // TODO BASICS:
-// left click: disable click on shown/marked
-// expandShown() 1st degree opening
-// checkGameOver(): 1.lose: on blowup 2. win: when all mines are marked + all cell shown
-// right click: marks (modal & DOM). 2nd click unmarks (modal & DOM)
-//
-// TODO NEXT: 
+// left click: disable click on shown/marked - no need?
+// expandShown() 1st degree opening 😍
+// right click: marks (modal & DOM). 2nd click unmarks (modal & DOM). updates gGame.markedCount
+// checkGameOver(): if win: when all mines are marked + all cell shown
 // random mines placing
+//
+// TODO NEXT:
 // set levels
+// timer
+// gameOver(): on lose: smiley sad, red marks losing bomb, timer stops
+// restart button
 // expandShown() full
+// colored numbers
 
-
-
-
-
-
-/*
-{
-    showCustomMenu();
-    return false;     // cancel default menu
-}
-*/

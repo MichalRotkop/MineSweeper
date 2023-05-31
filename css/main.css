@@ -35,6 +35,7 @@ table {
     background-color: rgba(82, 155, 160, 0.371);
 }
 
-td span {
-    
+.cell h4 {
+    margin-bottom: 0px;
+
 }
