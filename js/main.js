@@ -104,7 +104,7 @@ function onCellClicked(elCell, i, j) {
     //update DOM
     elCell.querySelector('span').hidden = false
 
-    if (!currCell.isMine && currCell.minesAroundCount === 0) {
+    if (!currCell.isMine && currCell.minesAroundCount === 0 && !currCell.isMarked) {
         expandShown(gBoard, elCell, i, j)
     }
 
@@ -121,6 +121,9 @@ function onCellMarked(elCell, ev) {
     var i = +elCell.dataset.i
     var j = +elCell.dataset.j
     var currCell = gBoard[i][j]
+    console.log('currCell:',currCell)
+
+    if (currCell.isShown) return
     
     
     if (elH4.innerHTML === FLAG) {
@@ -145,6 +148,7 @@ function expandShown(board, elCell, i, j) {
             if (!board[k][l].isMine && !board[k][l].isMarked) {
                 var elNegCell = document.querySelector(`[data-i="${k}"][data-j="${l}"]`)
                 elNegCell.querySelector('span').hidden = false
+                board[k][l].isShown = true
                 // console.log(elNegCell)
             }
         }
