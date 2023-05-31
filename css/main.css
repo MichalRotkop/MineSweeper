@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+    /* background-color: rgba(112, 60, 23, 0.211); */
+}
+
+h1 {
+    /* background-color: rgba(87, 54, 30, 0.564); */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 50px;
+    font-size: 60px;
+    /* border-bottom: 8px solid rgb(55, 51, 51); */
+}
+
+table {
+    border-collapse: collapse;
+
+    margin: auto;
+    background-color: rgb(245, 241, 219);
+    border: 8px solid rgb(61, 58, 51);
+    /* visibility: hidden; */
+    height: 400px;
+    width: 400px;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    transition: 0.15s;
+    border: 1px solid black;
+    
+}
+
+.cell:hover {
+    background-color: rgba(82, 155, 160, 0.371);
+}
+
+td span {
+    
+}
