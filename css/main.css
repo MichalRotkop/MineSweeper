@@ -6,9 +6,24 @@ body {
 h1 {
     /* background-color: rgba(87, 54, 30, 0.564); */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    padding: 50px;
+    padding: 40px;
     font-size: 60px;
     /* border-bottom: 8px solid rgb(55, 51, 51); */
+}
+
+.levels {
+    width: 150px;
+    padding: 5px;
+    /* background-color: rgba(165, 42, 42, 0.411); */
+    background-color: rgba(88, 128, 131, 0.848);
+    color: rgb(255, 255, 233);
+
+    cursor: pointer;
+    margin-bottom: 60px;
+    border-radius: 4px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+
 }
 
 table {
@@ -37,5 +52,81 @@ table {
 
 .cell h4 {
     margin-bottom: 0px;
+}
+
+.shown {
+    background-color: rgba(48, 92, 96, 0.371);
+}
+
+.smiley {
+
+    margin-bottom: 10px;
+    padding: 0px;
+    font-size: 30px;
+}
+
+.modal {
+    display: none;
+    background-color: rgb(167, 116, 116);
+    /* background-color: black; */
+    border: 5px solid white;
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+
+    position: absolute;
+    top: 250px;
+    left: calc(50% - 152px);
+    /* left: calc(50% - 175px); */
+}
+
+.choices {
+    margin-top: 10px;
+    
+    
+    /* border: 4px solid gray; */
+}
+
+.choices button {
+    height: 21px;
+    width: 21px;
+    margin-top: 30px;
+    /* display: block; */
+    margin-right: 90px;
+    cursor: pointer;
+    border: 2px solid black;
+    background-color: rgb(220, 235, 235);
+}
+
+.choices button:hover {
+    background-color: rgba(138, 231, 238, 0.407);
+}
+
+
+.choices span {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    display: inline-bloc;
+    margin-left: 30px;
+    /* position: absolute; */
 
 }
+
+.newgame-btn {
+    margin-top: 50px;
+    font-size: 17px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.newgame-btn:hover {
+    background-color: rgba(238, 233, 208, 0.88);
+}
+
+
+/* .smiley:hover {
+    content: '' ;
+
+    text-decoration: '😮';
+    
+} */

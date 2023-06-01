@@ -9,11 +9,34 @@
     <div>
         <h1>MineSweeper</h1>
     </div>
-    <button class="restart"></button>
+    <div>
+        <button class="levels" onclick="menuPopUp()">Choose Level</button>
+    </div>
+    <div>
+        <button class="smiley" onclick="onNewGame()">🙂</button>
+    </div>
     <table>
         <tbody class="board">
         </tbody>
     </table>
+    <div class="modal">
+        <div class="choices">
+            <!-- <h2 class="user-msg">You Won!</h2> -->
+            <div>
+                <button onclick="chooseLevel(this)" data-size="4" data-mines="2"><span>Beginner</span></button>
+                <!-- <span>Beginner</span> -->
+            </div>
+            <div>
+                <button onclick="chooseLevel(this)" data-size="8" data-mines="14"><span>Medium</span></button>
+                
+            </div>
+            <div>
+                <button onclick="chooseLevel(this)" data-size="12" data-mines="32"><span>Expert</span></button>
+                
+            </div>
+        </div>
+        <button class="newgame-btn" onclick="onNewGame()">New Game</button>
+    </div>
     <script src="js/main.js"></script>
 </body>
 
