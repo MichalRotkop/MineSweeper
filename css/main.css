@@ -59,7 +59,8 @@ table {
 }
 
 .smiley {
-
+    /* margin-right: 10px; */
+    /* margin-left: 0px; */
     margin-bottom: 10px;
     padding: 0px;
     font-size: 30px;
@@ -121,6 +122,23 @@ table {
 
 .newgame-btn:hover {
     background-color: rgba(238, 233, 208, 0.88);
+}
+
+.timer {
+    /* background-color: rgba(255, 159, 127, 0.592); */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    color: rgba(36, 36, 32, 0.679);
+    /* display: block; */
+    /* margin-left: -50px; */
+    /* visibility: hidden; */
+    margin-left: -170px;
+    margin-top: 18px;
+    /* margin-right: -50px; */
+    /* margin-bottom: 50px; */
+    position: absolute;
+
 }
 
 
