@@ -1,20 +1,19 @@
 body {
     text-align: center;
-    /* background-color: rgba(112, 60, 23, 0.211); */
+    background-color: rgba(83, 98, 103, 0.477);
 }
 
 h1 {
-    /* background-color: rgba(87, 54, 30, 0.564); */
+    background-color: rgba(171, 108, 97, 0.432);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 40px;
     font-size: 60px;
-    /* border-bottom: 8px solid rgb(55, 51, 51); */
+    border-bottom: 8px solid rgb(55, 51, 51);
 }
 
 .levels {
     width: 150px;
     padding: 5px;
-    /* background-color: rgba(165, 42, 42, 0.411); */
     background-color: rgba(88, 128, 131, 0.848);
     color: rgb(255, 255, 233);
 
@@ -23,7 +22,10 @@ h1 {
     border-radius: 4px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
+}
 
+.levels:hover {
+    background-color: rgba(61, 94, 97, 0.665)
 }
 
 table {
@@ -32,7 +34,6 @@ table {
     margin: auto;
     background-color: rgb(245, 241, 219);
     border: 8px solid rgb(61, 58, 51);
-    /* visibility: hidden; */
     height: 400px;
     width: 400px;
 }
@@ -43,7 +44,7 @@ table {
     text-align: center;
     transition: 0.15s;
     border: 1px solid black;
-    
+
 }
 
 .cell:hover {
@@ -58,41 +59,26 @@ table {
     background-color: rgba(48, 92, 96, 0.371);
 }
 
-.smiley {
-    /* margin-right: 10px; */
-    /* margin-left: 0px; */
-    margin-bottom: 10px;
-    padding: 0px;
-    font-size: 30px;
-}
-
 .modal {
     display: none;
     background-color: rgb(167, 116, 116);
-    /* background-color: black; */
     border: 5px solid white;
     width: 250px;
     height: 250px;
     padding: 20px;
-
     position: absolute;
     top: 250px;
     left: calc(50% - 152px);
-    /* left: calc(50% - 175px); */
 }
 
 .choices {
     margin-top: 10px;
-    
-    
-    /* border: 4px solid gray; */
 }
 
 .choices button {
     height: 21px;
     width: 21px;
     margin-top: 30px;
-    /* display: block; */
     margin-right: 90px;
     cursor: pointer;
     border: 2px solid black;
@@ -103,14 +89,11 @@ table {
     background-color: rgba(138, 231, 238, 0.407);
 }
 
-
 .choices span {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
     display: inline-bloc;
     margin-left: 30px;
-    /* position: absolute; */
-
 }
 
 .newgame-btn {
@@ -124,27 +107,34 @@ table {
     background-color: rgba(238, 233, 208, 0.88);
 }
 
+.smiley {
+    margin-bottom: 10px;
+    padding: 0px;
+    font-size: 30px;
+}
+
 .timer {
-    /* background-color: rgba(255, 159, 127, 0.592); */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 21px;
     font-weight: bold;
-    color: rgba(36, 36, 32, 0.679);
-    /* display: block; */
-    /* margin-left: -50px; */
-    /* visibility: hidden; */
-    margin-left: -170px;
+    color: rgba(47, 47, 42, 0.95);
+    margin-left: 50px;
     margin-top: 18px;
-    /* margin-right: -50px; */
-    /* margin-bottom: 50px; */
     position: absolute;
-
 }
 
+.lives {
+    font-size: 24px;
+    margin-top: 10px;
+    position: absolute;
+    margin-left: -170px;
+}
 
-/* .smiley:hover {
-    content: '' ;
-
-    text-decoration: '😮';
-    
-} */
+footer {
+    background-color: rgba(47, 46, 46, 0.495);
+    position: absolute;
+    bottom: 0;
+    padding-top:20px;
+    padding-bottom: 20px;
+    width: 100%;
+}

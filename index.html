@@ -13,8 +13,10 @@
         <button class="levels" onclick="menuPopUp()">Choose Level</button>
     </div>
     <div>
-        <span class="timer">Timer:</span>
+        <span class="lives">💙💙💙</span>
         <button class="smiley" onclick="onNewGame()">🙂</button>
+        <span class="timer">Timer:</span>
+
     </div>
     <table>
         <tbody class="board">
@@ -22,22 +24,21 @@
     </table>
     <div class="modal">
         <div class="choices">
-            <!-- <h2 class="user-msg">You Won!</h2> -->
             <div>
                 <button onclick="chooseLevel(this)" data-size="4" data-mines="2"><span>Beginner</span></button>
-                <!-- <span>Beginner</span> -->
             </div>
             <div>
                 <button onclick="chooseLevel(this)" data-size="8" data-mines="14"><span>Medium</span></button>
-                
+
             </div>
             <div>
                 <button onclick="chooseLevel(this)" data-size="12" data-mines="32"><span>Expert</span></button>
-                
+
             </div>
         </div>
         <button class="newgame-btn" onclick="onNewGame()">New Game</button>
     </div>
+    <footer><h2>Michal Rotkop</h2></footer>
     <script src="js/main.js"></script>
 </body>
 
