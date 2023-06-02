@@ -10,19 +10,21 @@
         <h1>MineSweeper</h1>
     </div>
     <div>
-        <button class="levels" onclick="menuPopUp()">Choose Level</button>
+        <button class="levels" onclick="openPopUp()">Choose Level</button>
     </div>
     <div>
+        <button class="hint-btn" onclick="showHint(this)">💡💡💡</button>
         <span class="lives">💙💙💙</span>
         <button class="smiley" onclick="onNewGame()">🙂</button>
-        <span class="timer">Timer:</span>
 
     </div>
     <table>
         <tbody class="board">
         </tbody>
     </table>
+    <span class="timer">Timer:</span>
     <div class="modal">
+        <button class="btn-close" onclick="closePopUp()">x</button>
         <div class="choices">
             <div>
                 <button onclick="chooseLevel(this)" data-size="4" data-mines="2"><span>Beginner</span></button>

@@ -33,7 +33,7 @@ table {
 
     margin: auto;
     background-color: rgb(245, 241, 219);
-    border: 8px solid rgb(61, 58, 51);
+    border: 8px solid rgba(61, 58, 51, 0.955);
     height: 400px;
     width: 400px;
 }
@@ -44,6 +44,7 @@ table {
     text-align: center;
     transition: 0.15s;
     border: 1px solid black;
+    background-color: transparent;
 
 }
 
@@ -69,6 +70,19 @@ table {
     position: absolute;
     top: 250px;
     left: calc(50% - 152px);
+}
+
+.btn-close {
+    margin-top: -10px;
+    margin-left: 240px;
+    font-size: 17px;
+    border-radius: 3px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.btn-close:hover {
+    background-color: rgba(216, 214, 203, 0.88);
 }
 
 .choices {
@@ -130,11 +144,31 @@ table {
     margin-left: -170px;
 }
 
+.hint-btn {
+    background-color: transparent;
+    font-size: 27px;
+    margin-top: -25px;
+    position: absolute;
+    margin-left: -178px;
+    border-radius: 4px;
+    padding: 0px;
+    border: none;
+    /* border: 3px ridge rgb(61, 58, 51) ; */
+}
+
 footer {
     background-color: rgba(47, 46, 46, 0.495);
     position: absolute;
     bottom: 0;
-    padding-top:20px;
+    padding-top: 20px;
     padding-bottom: 20px;
     width: 100%;
 }
+
+/* .hint-btn {
+    background-color: transparent;
+    font-size: 27px;
+    margin-top: -25px;
+    position: absolute;
+    margin-left: -176px;
+} */
