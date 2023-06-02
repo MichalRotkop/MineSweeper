@@ -5,9 +5,10 @@ const FLAG = '🚩'
 const NORMAL = '🙂'
 const LOSER = '😵'
 const WINNER = '🥳'
+const CLUELESS = '😶'
+const WORRIED = '😟'
 const LIVES = '💙'
 const HINT = '💡'
-// const HINT = '🔍🔦'
 
 var gBoard
 var gLevel
@@ -111,7 +112,8 @@ function renderBoard(board) {
         for (var j = 0; j < board[0].length; j++) {
             var currCell = board[i][j]
             var className = currCell.isMine ? 'mine' : ''
-            strHTML += `<td class="cell ${className}"
+            var classNum = currCell.minesAroundCount
+            strHTML += `<td class="cell ${className} num-${classNum}"
             onclick="onCellClicked(this,${i},${j})" oncontextmenu="onCellMarked(this,event)"
             data-i="${i}" data-j="${j}"><h4></h4><span hidden>`
             if (currCell.isMine) {
@@ -154,11 +156,7 @@ function onCellClicked(elCell, i, j) {
 
     if (gGame.isOn === false) return
     if (currCell.isMarked === true || currCell.isShown) return
-    if (gIsHintOn && currCell.isShown === false) {
-        revealNegs(gBoard, i, j)
-
-        ///////////
-    }
+    if (gIsHintOn && currCell.isShown === false) revealNegs(gBoard, i, j)
     if (currCell.isMine && currCell.isMarked === false && gIsHintOn === false) {
         if (currCell.isBlownUp) {
             return
@@ -168,6 +166,9 @@ function onCellClicked(elCell, i, j) {
         } else {
             currCell.isBlownUp = true
             gGame.lives--
+            if (gGame.lives === 0) {
+                document.querySelector('.smiley').innerHTML = WORRIED
+            }
             gMinesToMark--
             elCell.querySelector('span').hidden = false
             elCell.style.backgroundColor = 'rgb(248, 203, 130)'
@@ -205,7 +206,6 @@ function onCellMarked(elCell, ev) {
     var i = +elCell.dataset.i
     var j = +elCell.dataset.j
     var currCell = gBoard[i][j]
-
 
     if (currCell.isShown || gGame.isOn === false) return
 
@@ -260,6 +260,9 @@ function unRevealNegs() {
     elHintBtn.style.backgroundColor = 'transparent'
     gGame.hints--
     elHintBtn.innerHTML = HINT.repeat(gGame.hints)
+    if (gGame.hints === 0) {
+        document.querySelector('.smiley').innerHTML = CLUELESS
+    }
     gIsHintOn = false
 }
 
@@ -269,7 +272,6 @@ function showHint(elHint) {
 }
 
 function expandShown(board, elCell, i, j) {
-
     for (var k = i - 1; k <= i + 1; k++) {
         if (k < 0 || k >= board.length) continue
         for (var l = j - 1; l <= j + 1; l++) {
@@ -280,8 +282,11 @@ function expandShown(board, elCell, i, j) {
                 elNegCell.querySelector('span').hidden = false
                 if (!board[k][l].isShown) {
                     handleShownCells(k, l, board)
+                    if (board[k][l].minesAroundCount === 0) {
+                        expandShown(board, elCell, k, l)
+                    }
+                    // console.log(elNegCell)
                 }
-                // console.log(elNegCell)
             }
         }
     }
@@ -336,8 +341,6 @@ function chooseLevel(elCell) {
     elCell.style.backgroundColor = 'rgba(88, 128, 131, 0.848)'
 }
 
-
-
 function renderTimer() {
     var gElTimer = document.querySelector('.timer')
     var stopWatch = +gGame.secsPassed.toFixed(2)
@@ -357,23 +360,11 @@ function getRandomIntExclusive(min, max) {
     return Math.floor(Math.random() * (max - min)) + min
 }
 
-
-// TODO NEXT:
-
-// colored numbers : put class on cells with cell.minearound. css = color to each class
-
-// extras:
-// smiley changes: on click, on flag, on no lives left
-
 //BONOUS:
-
-// HINTS:
-// 3 emoji. When a hint is clicked, change emoji appearance
-// when an unrevealed cell is clicked, the cell and its neighbors are revealed for a second,
-//and the clicked hint disappears. => gGame.hints: 3, function showHint() uses negs
-// on click - if (gGame.hints >0) setTimout(function), gGame.hints --, render hint out
 
 // expandShown() full (if neg cell.minesAroundCount === 0 -check expandShown on negs,
 //  and reveal only if cell !=... )
+
+// extras:
 
 // CSS
