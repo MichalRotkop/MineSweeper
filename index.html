@@ -12,17 +12,20 @@
     <div>
         <button class="levels" onclick="openPopUp()">Choose Level</button>
     </div>
-    <div>
-        <button class="hint-btn" onclick="showHint(this)">💡💡💡</button>
-        <span class="lives">💙💙💙</span>
-        <button class="smiley" onclick="onNewGame()">🙂</button>
-
+    <div class="frame">
+        <div>
+            <button class="hint-btn" onclick="showHint(this)">💡💡💡</button>
+            <span class="lives">💙💙💙</span>
+            <button class="smiley" onclick="onNewGame()">🙂</button>
+            <button class="dark-btn" onclick="toggleMode(this)">Dark Mode 🌙</button>
+        </div>
+        <table>
+            <tbody class="board">
+            </tbody>
+        </table>
+        <span class="mine-count"></span>
+        <span class="timer">Timer:</span>
     </div>
-    <table>
-        <tbody class="board">
-        </tbody>
-    </table>
-    <span class="timer">Timer:</span>
     <div class="modal">
         <button class="btn-close" onclick="closePopUp()">x</button>
         <div class="choices">
@@ -31,7 +34,6 @@
             </div>
             <div>
                 <button onclick="chooseLevel(this)" data-size="8" data-mines="14"><span>Medium</span></button>
-
             </div>
             <div>
                 <button onclick="chooseLevel(this)" data-size="12" data-mines="32"><span>Expert</span></button>

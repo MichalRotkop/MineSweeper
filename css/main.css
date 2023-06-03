@@ -13,10 +13,9 @@ h1 {
 
 .levels {
     width: 150px;
-    padding: 5px;
+    padding: 7px;
     background-color: rgba(88, 128, 131, 0.848);
     color: rgb(255, 255, 233);
-
     cursor: pointer;
     margin-bottom: 60px;
     border-radius: 4px;
@@ -30,12 +29,43 @@ h1 {
 
 table {
     border-collapse: collapse;
-
     margin: auto;
     background-color: rgb(245, 241, 219);
     border: 8px solid rgba(61, 58, 51, 0.955);
     height: 400px;
     width: 400px;
+}
+
+.num-1 {
+    color: rgb(40, 40, 247);
+}
+
+.num-2 {
+    color: rgb(35, 120, 12);
+}
+
+.num-3 {
+    color: rgb(214, 10, 10);
+}
+
+.num-4 {
+    color: rgb(11, 11, 106);
+}
+
+.num-5 {
+    color: rgb(112, 19, 19);
+}
+
+.num-6 {
+    color: rgb(13, 120, 109);
+}
+
+.num-7 {
+    color: black;
+}
+
+.num-8 {
+    color: rgb(97, 94, 94);
 }
 
 .cell {
@@ -45,11 +75,10 @@ table {
     transition: 0.15s;
     border: 1px solid black;
     background-color: transparent;
-
     font-size: 120%;
     font-family: Verdana;
     font-weight: bold;
-
+    color: none;
 }
 
 .cell:hover {
@@ -61,7 +90,7 @@ table {
 }
 
 .shown {
-    background-color: rgba(48, 92, 96, 0.371);
+    background-color: rgba(99, 145, 149, 0.547);
 }
 
 .modal {
@@ -69,10 +98,10 @@ table {
     background-color: rgb(167, 116, 116);
     border: 5px solid white;
     width: 250px;
-    height: 250px;
+    height: 260px;
     padding: 20px;
     position: absolute;
-    top: 250px;
+    top: 270px;
     left: calc(50% - 152px);
 }
 
@@ -128,23 +157,15 @@ table {
 .smiley {
     margin-bottom: 10px;
     padding: 0px;
-    font-size: 30px;
-    /* border: 0px solid black; */
-}
-
-.timer {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 21px;
-    font-weight: bold;
-    color: rgba(47, 47, 42, 0.95);
-    margin-left: 50px;
-    margin-top: 18px;
-    position: absolute;
+    font-size: 40px;
+    background-color: rgb(114, 106, 106);
+    border-radius: 3px;
+    border: 2px solid rgb(66, 63, 63);
 }
 
 .lives {
     font-size: 24px;
-    margin-top: 10px;
+    margin-top: 25px;
     position: absolute;
     margin-left: -170px;
 }
@@ -152,13 +173,67 @@ table {
 .hint-btn {
     background-color: transparent;
     font-size: 27px;
-    margin-top: -25px;
+    margin-top: -5px;
     position: absolute;
     margin-left: -178px;
     border-radius: 4px;
     padding: 0px;
     border: none;
-    /* border: 3px ridge rgb(61, 58, 51) ; */
+}
+
+.dark-btn {
+    width: 100px;
+    padding: 5px;
+    background-color: rgba(36, 75, 110, 0.766);
+    color: rgb(255, 255, 233);
+    margin-bottom: 0px;
+    margin-left: 60px;
+    border-radius: 4px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 17px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.dark-btn:hover {
+    background-color: rgba(61, 94, 97, 0.665);
+}
+
+.timer {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    color: rgb(29, 29, 26);
+    margin-left: -50px;
+    margin-top: 18px;
+    position: absolute;
+}
+
+.mine-count {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 6px;
+    padding-right: 10px;
+    background-color: rgba(47, 57, 57, 0.832);
+    color: rgb(238, 234, 234);
+    position: absolute;
+    margin-left: -195px;
+    margin-top: 10px;
+}
+
+.frame {
+    height: 500px;
+    display: inline block;
+    width: 450px;
+    margin: auto;
+    padding: 30px;
+    padding-bottom: 50px;
+    background-color: rgba(140, 88, 79, 0.303);
+    border: 2px solid rgb(35, 33, 33);
+    border-radius: 4px;
 }
 
 footer {
@@ -168,36 +243,4 @@ footer {
     padding-top: 20px;
     padding-bottom: 20px;
     width: 100%;
-}
-
-.num-1 {
-    color: rgb(40, 40, 247);
-}
-
-.num-2 {
-    color: rgb(35, 120, 12);
-}
-
-.num-3 {
-    color: rgb(214, 10, 10);
-}
-
-.num-4 {
-    color: rgb(11, 11, 106);
-}
-
-.num-5 {
-    color: rgb(112, 19, 19);
-}
-
-.num-6 {
-    color: rgb(13, 120, 109);
-}
-
-.num-7 {
-    color: black;
-}
-
-.num-8 {
-    color: rgb(97, 94, 94);
 }
